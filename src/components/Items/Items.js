@@ -22,7 +22,10 @@ const Items = ({ items, sort, handleSort }) => {
       <Filter
         items={items}
         sort={sort}
-        handleSort={handleSort} />
+        handleSort={handleSort}
+        filterPrice={filterPrice}
+        setFilterPrice={setFilterPrice}
+        />
 
      <div className="item-grid">
       {items.map(item =>
