@@ -7,7 +7,7 @@ const ItemsDisplay = ({ item }) => {
       
       <div className="item-card">
         <div className="item-card-img">
-          <img className="item-img" src={item.image} width="300px"/>
+          <img className="item-img" src={item.img_url} width="300px" alt="painting-item" />
         </div>
         <div className="item-card-details">
           <div className="item-card-title">

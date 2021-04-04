@@ -1,8 +1,9 @@
 import React from 'react'
 import './Navbar.css'
-import Cart from '../Cart/Cart'
-import SignIn from '../SignIn/Signin'
+// import Cart from '../Cart/Cart'
+// import SignIn from '../Signin/Signin'
 import { BiCartAlt, BiUser } from 'react-icons/bi';
+import VarreLogo from '../../images/Varre-Logo.png'
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-center">
-            <h1 className="logo-header">Varre</h1>
+          <img className="logo" src={VarreLogo} alt="logo" width="50%"/>
         </div>
         
         <div className="navbar-right">
