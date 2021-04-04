@@ -1,25 +1,59 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar'
+import Sidebar from './components/Sidebar/Sidebar'
+import Items from './components/Items/Items'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends React.Component {
+  state = {
+    items: [],
+    users: [],
+    currentUser: {},
+    filter: "All",
+    search: ""
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/items')
+      .then(resp => resp.json())
+      .then(itemsData => this.setState({
+        items: itemsData
+      }));
+
+  }; 
+
+  currentUser = (user) => {
+    this.setState({
+      currentUserObj: user
+    })
+  }
+
+  displayItems = () => {
+    let displayItems = this.state.items.filter(item =>
+      item.name.toLowerCase().includes(this.state.search.toLowerCase()));
+    
+    if (this.state.filter !== "All") {
+      displayItems = displayItems.filter(item => item.name === this.state.filter)
+    };
+    return displayItems
+  }
+
+  render() {
+    return (
+        <div>
+        <Navbar />
+        <Sidebar />
+
+        <Items
+          search={this.state.search}
+          items={this.displayItems()}
+        />
+        
+      </div>
+    );
+  }
 }
 
 export default App;
