@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar'
 import Sidebar from './components/Sidebar/Sidebar'
 import Items from './components/Items/Items'
+import LandingPage from './components/LandingPage/LandingPage'
 
 
 
@@ -45,6 +46,7 @@ class App extends React.Component {
         <div>
         <Navbar />
         <Sidebar />
+        {/* <LandingPage /> */}
 
         <Items
           search={this.state.search}
