@@ -1,0 +1,25 @@
+.login-page {
+  justify-content: center;
+}
+
+.login-container {
+  display: inline; 
+  margin: auto; 
+  text-align: center;
+  width: 400px; 
+  margin-top: 300px;
+  padding-top: 200px; 
+}
+
+.login-card {
+  justify-content: center;
+  margin: auto; 
+  display: flex; 
+  border: 1pt rgb(226, 225, 225);
+  border-radius: 5px;
+  border-style: solid;
+  width: 400px;
+  height: 300px; 
+  padding-top: 40px;
+  margin-top: 10px;
+}

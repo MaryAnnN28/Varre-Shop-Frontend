@@ -1,19 +1,24 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Signup from './components/Signup/Signup'
 import Navbar from './components/Navbar/Navbar'
-import Sidebar from './components/Sidebar/Sidebar'
+// import Sidebar from './components/Sidebar/Sidebar'
+import Signin from './components/Signin/Signin'
 import Items from './components/Items/Items'
+import Cart from './components/Cart/Cart'
 import LandingPage from './components/LandingPage/LandingPage'
 
 
 
 class App extends React.Component {
+
   state = {
-    items: [],
-    users: [],
-    currentUser: {},
-    filter: "All",
-    search: ""
+    items: []
+    // users: [],
+    // currentUser: {},
+    // filter: "All",
+    // search: ""
   }
 
   componentDidMount() {
@@ -22,14 +27,9 @@ class App extends React.Component {
       .then(itemsData => this.setState({
         items: itemsData
       }));
-
   }; 
 
-  currentUser = (user) => {
-    this.setState({
-      currentUserObj: user
-    })
-  }
+
 
   displayItems = () => {
     let displayItems = this.state.items.filter(item =>
@@ -43,16 +43,28 @@ class App extends React.Component {
 
   render() {
     return (
-        <div>
-        <Navbar />
-        <Sidebar />
-        {/* <LandingPage /> */}
+      <div>
+        <BrowserRouter>
+            <Navbar />
+            {/* <Sidebar /> */}
+          <Switch>
+            <Route exact path="/" />
+          </Switch>
 
-        <Items
-          search={this.state.search}
-          items={this.displayItems()}
-        />
+            <Route exact path="/signin" component={Signin} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/shop" component={Items} />
+            <Route exact path="/explore" component={LandingPage} />
+
+
+            {/* <LandingPage /> */}
+
+            {/* <Items items={this.displayItems()} /> */}
+            <Items items={this.state.items} />
+
         
+        </BrowserRouter>
       </div>
     );
   }

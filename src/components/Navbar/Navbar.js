@@ -1,7 +1,6 @@
 import React from 'react'
 import './Navbar.css'
-// import Cart from '../Cart/Cart'
-// import SignIn from '../Signin/Signin'
+import { Link } from 'react-router-dom'
 import { BiCartAlt, BiUser } from 'react-icons/bi';
 import VarreLogo from '../../images/Varre-Logo.png'
 
@@ -12,17 +11,18 @@ const Navbar = () => {
         
       
         <div className="navbar-left">
-          <a href="">SHOP</a>
-          <a href="">EXPLORE</a>
+          <Link to='/shop'> SHOP</Link>
+          <Link to='/explore'> EXPLORE</Link>
         </div>
 
         <div className="navbar-center">
-          <img className="logo" src={VarreLogo} alt="logo" width="50%"/>
+          <Link to='/'><img className="logo" src={VarreLogo} alt="logo" width="50%"/></Link>
         </div>
         
         <div className="navbar-right">
-           <a href=""><BiUser /> SIGN IN</a>
-          <a href=""><BiCartAlt/> CART</a>
+          <Link to='/signin'><BiUser /> SIGN IN</Link>
+          <Link to='/cart'><BiCartAlt/> CART</Link>
+  
 
         </div>
 

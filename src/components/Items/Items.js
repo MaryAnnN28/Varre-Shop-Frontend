@@ -4,13 +4,15 @@ import ItemsDisplay from './ItemsDisplay'
 const Items = ({ items }) => {
   return (
     <div>
-       
-      {items.map(item => 
-        <ItemsDisplay
-          key={item.id}
-          item={item}
+      
+      {items.map(item =>
+        <ItemsDisplay key={item.id} item={item}
+          
         />
       )}
+    
+       
+     
        
     </div>
   )

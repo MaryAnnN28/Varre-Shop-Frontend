@@ -1,0 +1,45 @@
+.landing-page {
+  justify-content: center;
+}
+
+.images-container {
+  justify-content: center;
+  margin-right: auto; 
+  margin-left: auto; 
+  display: block; 
+  width: 800px; 
+  height: 800px; 
+  position: relative; 
+}
+
+.mySlides {
+  display:flex; 
+}
+
+.button-back, .button-next {
+  color: rgb(162, 162, 167); 
+  background-color: none;
+  background: none; 
+  outline: none;
+  border-style: none;
+  font-weight: bold; 
+  margin-top: -20px;
+  width: auto; 
+  padding: 16px; 
+  top: 45%; 
+  position: absolute;
+  font-size: 30px; 
+  transition: 0.6s ease; 
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.button-next {
+  right: 0; 
+  border-radius: 3px 0 0 3px;
+}
+
+.button-next:hover, .button-back:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
