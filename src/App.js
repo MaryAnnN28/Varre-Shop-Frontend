@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Signup from './components/Signup/Signup'
 import Navbar from './components/Navbar/Navbar'
 // import Sidebar from './components/Sidebar/Sidebar'
@@ -14,11 +14,11 @@ import LandingPage from './components/LandingPage/LandingPage'
 class App extends React.Component {
 
   state = {
-    items: []
-    // users: [],
-    // currentUser: {},
-    // filter: "All",
-    // search: ""
+    items: [],
+    users: [],
+    filter: "All",
+    search: "",
+    sort: "None"
   }
 
   componentDidMount() {
@@ -37,34 +37,57 @@ class App extends React.Component {
     
     if (this.state.filter !== "All") {
       displayItems = displayItems.filter(item => item.name === this.state.filter)
-    };
+    }
+
+    switch (this.state.sort) {
+      case "Price_Low_To_High":
+        return displayItems.sort((a, b) => a.price > b.price ? 1 : -1)
+      case "Price_High_To_Low":
+        return displayItems.sort((a, b) => a.price > b.price ? -1 : 1)
+      case "Newest":
+        return displayItems.sort((a, b) => a.created_at > b.created_at ? -1 : 1)
+      case "Oldest":
+        return displayItems.sort((a, b) => a.created_at > b.created_at ? 1 : -1)
+      case "None":
+        return displayItems
+      }
     return displayItems
   }
+
+  handleSort = (event) => {
+    this.setState({
+      sortByPrice: event.target.value 
+    })
+  }
+
+
 
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <Router>
             <Navbar />
             {/* <Sidebar /> */}
           <Switch>
-            <Route exact path="/" />
+            <Route exact path="/" component={LandingPage}/>
           </Switch>
 
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/cart" component={Cart} />
-            <Route exact path="/shop" component={Items} />
             <Route exact path="/explore" component={LandingPage} />
 
-
-            {/* <LandingPage /> */}
-
-            {/* <Items items={this.displayItems()} /> */}
-            <Items items={this.state.items} />
+          <Route path="/shop" render={routerProps =>
+            <Items
+              items={this.displayItems()}
+              sort={this.state.sort}
+              handleSort={this.handleSort}
+              {...routerProps}
+            />} />
+          
 
         
-        </BrowserRouter>
+        </Router>
       </div>
     );
   }
