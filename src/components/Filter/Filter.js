@@ -5,7 +5,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select'; 
+import Select from '@material-ui/core/Select';
+import Checkbox from '@material-ui/core/Checkbox'
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -23,7 +26,7 @@ const Filter = ({ sort, handleSort }) => {
 
   const [value, setValue] = useState("None");
   
-  // items.map(item => itemPrice.includes(item.price) ? null : setItemPrice([...itemPrice, item.price]))
+  const [checked, setChecked] = useState("None");
 
 
 
@@ -76,6 +79,126 @@ const Filter = ({ sort, handleSort }) => {
       <div className="filter-container">
         <div className="filter-header">
           <p className="filter-header-text">FILTER BY:</p>
+              <br />
+          <FormGroup>
+            Category
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Abstract"
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Nature"
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Figurative"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Fashion"
+            />
+            <br /><br />
+            Color<br />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Black"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="White"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Multi-color"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Blue"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Beige"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  // checked={state.checkedB}
+                  // onChange={handleChange}
+                  name="checkedB"
+                  color="primary"
+                />
+              }
+              label="Gold"
+            />
+
+
+          </FormGroup>
         </div>
       </div>
     </>
