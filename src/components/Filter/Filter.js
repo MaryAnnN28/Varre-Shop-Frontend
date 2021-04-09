@@ -36,7 +36,13 @@ const Filter = ({ sort, handleSort }) => {
         <div className="sort">
           {/* <p className="sort-header-text">
             SORT BY: */}
-            <FormControl variant="outlined" className={classes.formControl}>
+           
+          {/* </p> */}
+        </div>
+      </div>
+      <div className="filter-container">
+        <div className="filter-header">
+        <FormControl variant="outlined" className={classes.formControl}>
               <InputLabel id="demo-simple-select-outlined-label">Sort:</InputLabel>
               <Select
                 labelId="demo-simple-select-outlined-label"
@@ -72,12 +78,8 @@ const Filter = ({ sort, handleSort }) => {
                 >Oldest</MenuItem>
               
               </Select>
-            </FormControl>
-          {/* </p> */}
-        </div>
-      </div>
-      <div className="filter-container">
-        <div className="filter-header">
+          </FormControl>
+          <br /><br />
           <p className="filter-header-text">FILTER BY:</p>
               <br />
           <FormGroup>
