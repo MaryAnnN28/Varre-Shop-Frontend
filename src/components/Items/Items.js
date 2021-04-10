@@ -16,6 +16,7 @@ const Items = ({ items, sort, handleSort }) => {
     if (filterPrice && filterPrice !== "All") {
       filterItems = filterItems.filter()
     }
+ 
   }
   return (
     <>
