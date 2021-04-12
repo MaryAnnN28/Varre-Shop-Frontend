@@ -52,30 +52,15 @@ const Filter = ({ sort, handleSort }) => {
                 label="Sort"
                 margin="dense"
               >
-                <MenuItem
-                  checked={sort === "None"}
-                  value="None"
-                >None</MenuItem>
+                <MenuItem value={"None"}>None</MenuItem>
 
-                <MenuItem
-                checked={sort === "Price_Low_To_High"}
-                value="Price_Low_To_High"
-                >Price (Low to High)</MenuItem>
+                <MenuItem value={"Price_Low_To_High"}>Price (Low to High)</MenuItem>
               
-                <MenuItem
-                  checked={sort === "Price_High_To_Low"}
-                  value="Price_High_To_Low"
-                >Price (High to Low)</MenuItem>
+                <MenuItem value={"Price_High_To_Low"}>Price (High to Low)</MenuItem>
               
-                <MenuItem
-                  checked={sort === "Newest"}
-                  value="Newest"
-                >Newest</MenuItem>
+                <MenuItem value={"Newest"}>Newest</MenuItem>
 
-                <MenuItem
-                  checked={sort === "Oldest"}
-                  value="Oldest"
-                >Oldest</MenuItem>
+                <MenuItem value={"Oldest"}>Oldest</MenuItem>
               
               </Select>
           </FormControl>
