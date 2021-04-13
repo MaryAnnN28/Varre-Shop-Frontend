@@ -28,6 +28,8 @@ const Filter = ({ sort, handleSort }) => {
   
   const [checked, setChecked] = useState("None");
 
+  const [category, setCategory] = useState("None"); 
+
 
 
   return (
