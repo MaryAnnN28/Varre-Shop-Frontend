@@ -15,7 +15,7 @@ const Cart = () => {
             </tr>
           </table>
           <table className="cart-summary">
-            <thead align="center">Order Summary</thead>
+            <thead>Order Summary</thead>
             <tbody>
               <tr>
                 <td>Subtotal</td>
@@ -32,6 +32,12 @@ const Cart = () => {
               <tr>
               <td>Total</td>
                 <td>$1000.00</td>
+              </tr>
+              <tr>
+                <center>
+                  <button type="submit">Proceed to Checkout</button>
+
+                </center>
               </tr>
             </tbody>
           </table>
