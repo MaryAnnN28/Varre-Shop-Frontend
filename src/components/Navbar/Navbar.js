@@ -20,8 +20,14 @@ const Navbar = () => {
         </div>
         
         <div className="navbar-right">
-          <Link to='/signin'><BiUser /> SIGN IN</Link>
-          <Link to='/cart'><BiCartAlt/> CART</Link>
+          <Link to='/signin'>
+            {/* <BiUser /> */}
+            SIGN IN
+            </Link>
+          <Link to='/cart'>
+            {/* <BiCartAlt /> */}
+          CART
+          </Link>
   
 
         </div>

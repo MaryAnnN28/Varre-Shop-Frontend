@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+// import './ItemDetail.css';
 
 
 const ItemDetail = ({ item, show, handleClose }) => {

@@ -30,12 +30,12 @@ const ItemsDisplay = ({ item }) => {
         </div>
       </div>
       <Fragment>
-        <ItemDetail
+        {/* <ItemDetail
           item={item}
           show={show}
           handleClose={() => setShow(false)}
         
-        />
+        /> */}
       </Fragment>
     
   </>

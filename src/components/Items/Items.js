@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ItemsDisplay from './ItemsDisplay'
 import Filter from '../Filter/Filter'
-import ItemDetail from './ItemDetail'
+
 
 const Items = ({ items, sort, handleSort }) => {
 
