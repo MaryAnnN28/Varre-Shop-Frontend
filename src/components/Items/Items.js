@@ -34,9 +34,7 @@ const Items = ({ items, sort, handleSort }) => {
       )}
 
       </div>
-      {items.map(item =>
-        <ItemDetail item={item} />
-      )}
+  
     </>
   )
 }

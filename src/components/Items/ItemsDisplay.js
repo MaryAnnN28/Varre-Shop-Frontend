@@ -1,4 +1,5 @@
-import React, { useState } from 'react'; 
+import React, { Fragment, useState, useRef } from 'react';
+import ItemDetail from './ItemDetail'
 import './Items.css';
 
 
@@ -8,7 +9,7 @@ const ItemsDisplay = ({ item }) => {
   const [show, setShow] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const onClose = () => setIsOpen(false)
-  
+
 
   return (
     <>
@@ -28,6 +29,14 @@ const ItemsDisplay = ({ item }) => {
           </div>
         </div>
       </div>
+      <Fragment>
+        <ItemDetail
+          item={item}
+          show={show}
+          handleClose={() => setShow(false)}
+        
+        />
+      </Fragment>
     
   </>
   )

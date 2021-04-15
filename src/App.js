@@ -68,28 +68,28 @@ class App extends React.Component {
     return (
       <div>
         <Router>
+          <ChakraProvider>
+
             <Navbar />
       
-          <Switch>
-            <Route exact path="/" component={LandingPage}/>
-          </Switch>
+            <Switch>
+              <Route exact path="/" component={LandingPage}/>
+            </Switch>
 
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/cart" component={Cart} />
-          <Route exact path="/explore" component={LandingPage} />
-          
-
-          <Route path="/shop" render={routerProps =>
-            <Items
-              items={this.displayItems()}
-              sort={this.state.sort}
-              handleSort={this.handleSort}
-              {...routerProps}
-            />} />
-          
-
-        
+            <Route exact path="/explore" component={LandingPage} />
+            
+            <Route path="/shop" render={routerProps =>
+              <Items
+                items={this.displayItems()}
+                sort={this.state.sort}
+                handleSort={this.handleSort}
+                {...routerProps}
+              />} />
+         
+          </ChakraProvider>
         </Router>
       </div>
     );
