@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ItemsDisplay from './ItemsDisplay'
 import Filter from '../Filter/Filter'
+import ItemDetail from './ItemDetail'
 
 const Items = ({ items, sort, handleSort }) => {
 
+  const [page, setPage] = useState(1)
+  const [show, setShow] = useState(false); 
   const [filterPrice, setFilterPrice] = useState("")
   const [filterNewest, setFilterNewest] = useState("")
   const [filterCategory, setFilterCategory] = useState("")
@@ -11,8 +14,7 @@ const Items = ({ items, sort, handleSort }) => {
 
 
   const filterItems = () => {
-    let filterItems = items.filter(item =>
-      item.name.toLowerCase().includes())
+    let filterItems = items
     if (filterPrice && filterPrice !== "All") {
       filterItems = filterItems.filter()
     }
@@ -30,15 +32,13 @@ const Items = ({ items, sort, handleSort }) => {
 
      <div className="item-grid">
       {items.map(item =>
-        <ItemsDisplay key={item.id} item={item}
-          
-        />
+        <ItemsDisplay key={item.id} item={item}/>
       )}
-    
-       
-     
-       
+
       </div>
+      {items.map(item =>
+        <ItemDetail show={show} handleClose={() => setShow(false)} item={item} />
+      )}
     </>
   )
 }

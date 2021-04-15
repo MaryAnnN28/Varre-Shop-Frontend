@@ -2,8 +2,10 @@ import React from 'react';
 import './Items.css';
 
 
+
 const ItemsDisplay = ({ item }) => {
   return (
+    <>
       <div className="item-grid">
       
         <div className="item-card">
@@ -19,10 +21,9 @@ const ItemsDisplay = ({ item }) => {
             </div>
           </div>
         </div>
-
       </div>
-
-  
+    
+  </>
   )
 }
 

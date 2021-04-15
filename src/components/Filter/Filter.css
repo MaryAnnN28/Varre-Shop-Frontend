@@ -1,19 +1,6 @@
-.sort-container {
-  top: 150px; 
-  right: 250px; 
-  display: flex; 
-  position: fixed;
-  justify-content: right;
-}
-
-.sort-header-text {
-  font-size: 9.5pt;
-  font-weight: 600;
-  margin-left: 15px; 
-}
 
 .filter-container {
-  top: 150px; 
+  top: 190px; 
   left: 0px; 
   display: flex; 
   position: fixed;
@@ -23,15 +10,17 @@
   border-style: solid;
   border-color: rgb(226, 225, 225);
   border-width: 1pt;
+  margin-left: 5px;
   /* border-top: 2pt #838282;  */
 }
 
 .filter-header {
-  margin-top: 40px; 
+  margin-top: 20px;
+  margin-left: 10px; 
 }
 
 .filter-header-text {
-  font-size: 9.5pt;
-  font-weight: 600;
-  margin-left: 15px; 
+  font-size: 11.0pt;
+  font-weight: 900;
+  margin-left: 0px; 
 }

@@ -34,14 +34,7 @@ const Filter = ({ sort, handleSort }) => {
 
   return (
     <>
-      <div className="sort-container">
-        <div className="sort">
-          {/* <p className="sort-header-text">
-            SORT BY: */}
-           
-          {/* </p> */}
-        </div>
-      </div>
+    
       <div className="filter-container">
         <div className="filter-header">
         <FormControl variant="outlined" className={classes.formControl}>
@@ -70,7 +63,7 @@ const Filter = ({ sort, handleSort }) => {
           <p className="filter-header-text">FILTER BY:</p>
               <br />
           <FormGroup>
-            Category
+          <p className="filter-header-text">CATEGORY</p>
             <FormControlLabel
               control={
                 <Checkbox
@@ -117,8 +110,8 @@ const Filter = ({ sort, handleSort }) => {
               }
               label="Fashion"
             />
-            <br /><br />
-            Color<br />
+            <br />
+            <p className="filter-header-text">COLOR</p>
             <FormControlLabel
               control={
                 <Checkbox
