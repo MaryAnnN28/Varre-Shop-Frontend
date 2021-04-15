@@ -1,18 +1,37 @@
 import React from 'react'
-import { useHistory } from 'react-router';
+
 
 const ItemDetail = ({ item }) => {
 
- 
+
   
   return (
     <div className="item-details-page">
-      <section className="modal-main">
-        <center>
-          <h3 className="item-name">{item.name}</h3><br />
+      <center>
+        
+        <div className="item-image-container">
           <img className="modal-card-img-top" src={item.img_url} alt="" />
-        </center>
-      </section>
+        </div>
+
+        <div className="item-name-container">
+          <h3 className="item-name">{item.name}</h3><br />
+        </div>
+
+        <div className="item-description-container">
+          <p className="item-description-text">
+            {item.description}
+          </p>
+        </div>
+
+        <div className="item-detail-price">
+          <p className="item-detail-price">
+            Price: {item.price}
+           
+          </p>
+        </div>
+
+      </center>
+
     </div>
   )
 }

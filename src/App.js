@@ -8,7 +8,8 @@ import Signin from './components/Signin/Signin'
 import Items from './components/Items/Items'
 import Cart from './components/Cart/Cart'
 import LandingPage from './components/LandingPage/LandingPage'
-import ItemDetail from './components/Items/ItemDetail'
+
+import { ChakraProvider } from "@chakra-ui/react" 
 
 
 

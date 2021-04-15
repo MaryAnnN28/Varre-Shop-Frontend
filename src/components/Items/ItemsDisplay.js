@@ -1,14 +1,20 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import './Items.css';
 
 
 
 const ItemsDisplay = ({ item }) => {
+
+  const [show, setShow] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const onClose = () => setIsOpen(false)
+  
+
   return (
     <>
       <div className="item-grid">
       
-        <div className="item-card">
+        <div className="item-card" onClick={() => setShow(true)}>
           <div className="item-card-img">
             <img className="item-img" src={item.img_url} width="300px" alt="painting-item" />
           </div>
