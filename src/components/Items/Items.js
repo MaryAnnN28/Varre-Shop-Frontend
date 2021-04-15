@@ -5,8 +5,6 @@ import ItemDetail from './ItemDetail'
 
 const Items = ({ items, sort, handleSort }) => {
 
-  const [page, setPage] = useState(1)
-  const [show, setShow] = useState(false); 
   const [filterPrice, setFilterPrice] = useState("")
   const [filterNewest, setFilterNewest] = useState("")
   const [filterCategory, setFilterCategory] = useState("")
@@ -37,7 +35,7 @@ const Items = ({ items, sort, handleSort }) => {
 
       </div>
       {items.map(item =>
-        <ItemDetail show={show} handleClose={() => setShow(false)} item={item} />
+        <ItemDetail item={item} />
       )}
     </>
   )

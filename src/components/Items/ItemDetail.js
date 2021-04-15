@@ -1,14 +1,18 @@
 import React from 'react'
 import { useHistory } from 'react-router';
 
-const ItemDetail = ({ show, handleClose, item }) => {
+const ItemDetail = ({ item }) => {
 
-  const showHideClassName = show ? "modal display-block" : "modal display:none";
-  const history = useHistory();
+ 
   
   return (
-    <div>
-      Item Details / MODAL
+    <div className="item-details-page">
+      <section className="modal-main">
+        <center>
+          <h3 className="item-name">{item.name}</h3><br />
+          <img className="modal-card-img-top" src={item.img_url} alt="" />
+        </center>
+      </section>
     </div>
   )
 }

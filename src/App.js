@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Signup from './components/Signup/Signup'
 import Navbar from './components/Navbar/Navbar'
 // import Sidebar from './components/Sidebar/Sidebar'
@@ -8,6 +8,7 @@ import Signin from './components/Signin/Signin'
 import Items from './components/Items/Items'
 import Cart from './components/Cart/Cart'
 import LandingPage from './components/LandingPage/LandingPage'
+import ItemDetail from './components/Items/ItemDetail'
 
 
 
@@ -67,7 +68,7 @@ class App extends React.Component {
       <div>
         <Router>
             <Navbar />
-            {/* <Sidebar /> */}
+      
           <Switch>
             <Route exact path="/" component={LandingPage}/>
           </Switch>
@@ -75,7 +76,8 @@ class App extends React.Component {
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/cart" component={Cart} />
-            <Route exact path="/explore" component={LandingPage} />
+          <Route exact path="/explore" component={LandingPage} />
+          
 
           <Route path="/shop" render={routerProps =>
             <Items
