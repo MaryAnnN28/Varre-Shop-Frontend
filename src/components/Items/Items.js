@@ -6,6 +6,7 @@ import Filter from '../Filter/Filter'
 const Items = ({ items, sort, handleSort }) => {
 
   const [filterPrice, setFilterPrice] = useState("")
+  const [page, setPage] = useState(1)
   const [filterNewest, setFilterNewest] = useState("")
   const [filterCategory, setFilterCategory] = useState("")
   const [filterColor, setFilterColor] = useState("")
