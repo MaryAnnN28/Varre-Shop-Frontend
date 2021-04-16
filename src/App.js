@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Signup from './components/Signup/Signup'
 import Navbar from './components/Navbar/Navbar'
-// import Sidebar from './components/Sidebar/Sidebar'
 import Signin from './components/Signin/Signin'
 import Items from './components/Items/Items'
 import Cart from './components/Cart/Cart'
