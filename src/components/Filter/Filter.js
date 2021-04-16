@@ -62,14 +62,12 @@ const Filter = ({ sort, handleSort }) => {
           <br /><br />
           <p className="filter-header-text">FILTER BY:</p>
               <br />
-          <FormGroup>
+          <FormGroup margin="dense">
           <p className="filter-header-text">CATEGORY</p>
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Abstract"
                   color="primary"
                 />
               }
@@ -79,9 +77,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Nature"
                   color="primary"
                 />
               }
@@ -91,9 +87,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Figurative"
                   color="primary"
                 />
               }
@@ -102,9 +96,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Fashion"
                   color="primary"
                 />
               }
@@ -115,9 +107,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Black"
                   color="primary"
                 />
               }
@@ -126,9 +116,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="White"
                   color="primary"
                 />
               }
@@ -137,9 +125,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Multi-color"
                   color="primary"
                 />
               }
@@ -148,9 +134,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Blue"
                   color="primary"
                 />
               }
@@ -159,9 +143,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Beige"
                   color="primary"
                 />
               }
@@ -170,9 +152,7 @@ const Filter = ({ sort, handleSort }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={state.checkedB}
-                  // onChange={handleChange}
-                  name="checkedB"
+                  name="Gold"
                   color="primary"
                 />
               }
@@ -181,6 +161,7 @@ const Filter = ({ sort, handleSort }) => {
 
 
           </FormGroup>
+       
         </div>
       </div>
     </>
