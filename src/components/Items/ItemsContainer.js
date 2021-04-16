@@ -3,7 +3,7 @@ import ItemsDisplay from './ItemsDisplay'
 import Filter from '../Filter/Filter'
 
 
-const Items = ({ items, sort, handleSort }) => {
+const ItemsContainer = ({ items, sort, handleSort }) => {
 
   const [filterPrice, setFilterPrice] = useState("")
   const [page, setPage] = useState(1)
@@ -40,4 +40,4 @@ const Items = ({ items, sort, handleSort }) => {
   )
 }
 
-export default Items; 
+export default ItemsContainer; 

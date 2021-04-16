@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Signup from './components/Signup/Signup'
 import Navbar from './components/Navbar/Navbar'
 import Signin from './components/Signin/Signin'
-import Items from './components/Items/Items'
+import ItemsContainer from './components/Items/ItemsContainer'
 import Cart from './components/Cart/Cart'
 import LandingPage from './components/LandingPage/LandingPage'
 
@@ -81,7 +81,7 @@ class App extends React.Component {
             <Route exact path="/explore" component={LandingPage} />
             
             <Route path="/shop" render={routerProps =>
-              <Items
+              <ItemsContainer
                 items={this.displayItems()}
                 sort={this.state.sort}
                 handleSort={this.handleSort}
