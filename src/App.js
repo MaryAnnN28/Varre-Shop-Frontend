@@ -16,8 +16,10 @@ class App extends React.Component {
 
   state = {
     items: [],
-    users: [],
+    user: {},
     filter: "All",
+    cartItems: [],
+    loggedIn: false, 
     search: "",
     sort: "None"
   }

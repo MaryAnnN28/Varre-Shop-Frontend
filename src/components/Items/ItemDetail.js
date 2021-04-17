@@ -6,14 +6,15 @@ import './ItemDetail.css';
 const ItemDetail = ({ item, show, handleClose }) => {
 
   const showHideClassName = show ? "modal display-block" : "modal display-none";
-  const [count, setCount] = useState(0)
   
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
 
         <center>
-          <div className="item-details-card">
+          <div className="modal-content">
+            
+          <button type="button" className="close-btn" aria-label="Close" onClick={handleClose}>&times;</button>
             
             <div className="item-details-card-left">
               <div className="item-details-image-container">

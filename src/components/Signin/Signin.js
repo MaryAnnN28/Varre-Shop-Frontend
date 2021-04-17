@@ -15,10 +15,8 @@ class Signin extends Component {
   }
 
   handleChange = (event) => {
-    const { email, value } = event.target
-    this.setState ({
-      [email]: value
-    })
+    this.setState({ [event.target.name]: event.target.value})
+    
   };
 
   handleSubmit = (event) => {
@@ -33,10 +31,11 @@ class Signin extends Component {
         <div className="login-container">
           <h1>Log In</h1>
           <div className="login-card">
-            <form onSubmit={this.handleSubmit}>
+            <form classname="sign-in-form" onSubmit={this.handleSubmit}>
               <TextField
                 required
                 id="outlined-helperText"
+                name="email"
                 label="Email"
                 type="email"
                 variant="outlined"
@@ -48,6 +47,7 @@ class Signin extends Component {
               <TextField
                 required
                 id="outlined-helperText"
+                name="password"
                 label="Password"
                 type="password"
                 margin="dense"

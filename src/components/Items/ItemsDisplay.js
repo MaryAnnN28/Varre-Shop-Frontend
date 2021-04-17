@@ -6,9 +6,8 @@ import './Items.css';
 
 const ItemsDisplay = ({ item }) => {
 
-  const [show, setShow] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
-  const onClose = () => setIsOpen(false)
+  const [show, setShow] = useState(false);
+
 
 
   return (
