@@ -6,6 +6,7 @@ import './ItemDetail.css';
 const ItemDetail = ({ item, show, handleClose }) => {
 
   const showHideClassName = show ? "modal display-block" : "modal display-none";
+  const [count, setCount] = useState(0)
   
   return (
     <div className={showHideClassName}>
@@ -25,16 +26,23 @@ const ItemDetail = ({ item, show, handleClose }) => {
                 <h3 className="item-details-name">{item.name}</h3><br />
               </div>
 
+              <div className="item-details-card-price">
+                <p className="item-details-card-price">
+                  {item.price}
+                </p>
+              </div>
+
               <div className="item-details-description-container">
                 <p className="item-details-description-text">
                   {item.description}
                 </p>
               </div>
 
-              <div className="item-details-card-price">
-                <p className="item-detail-card-price">
-                  {item.price}
-                </p>
+
+              <div className="add-to-cart-button">
+  
+                 <button className="cart-btn">ADD TO CART</button>
+          
               </div>
             </div>
 
