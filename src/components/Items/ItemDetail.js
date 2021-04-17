@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-// import './ItemDetail.css';
+import './ItemDetail.css';
 
 
 const ItemDetail = ({ item, show, handleClose }) => {
@@ -12,28 +12,33 @@ const ItemDetail = ({ item, show, handleClose }) => {
       <section className="modal-main">
 
         <center>
-          
-          <div className="item-image-container">
-            <img className="modal-card-img-top" src={item.img_url} alt="" />
-          </div>
-
-          <div className="item-name-container">
-            <h3 className="item-name">{item.name}</h3><br />
-          </div>
-
-          <div className="item-description-container">
-            <p className="item-description-text">
-              {item.description}
-            </p>
-          </div>
-
-          <div className="item-detail-price">
-            <p className="item-detail-price">
-              Price: {item.price}
+          <div className="item-details-card">
             
-            </p>
-          </div>
+            <div className="item-details-card-left">
+              <div className="item-details-image-container">
+                <img className="modal-card-img-top" src={item.img_url} alt="" />
+              </div>
+            </div>
 
+            <div className="item-details-card-right">
+              <div className="item-details-name-container">
+                <h3 className="item-details-name">{item.name}</h3><br />
+              </div>
+
+              <div className="item-details-description-container">
+                <p className="item-details-description-text">
+                  {item.description}
+                </p>
+              </div>
+
+              <div className="item-details-card-price">
+                <p className="item-detail-card-price">
+                  {item.price}
+                </p>
+              </div>
+            </div>
+
+          </div>
         </center>
       </section>
 
