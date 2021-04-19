@@ -3,7 +3,6 @@ import './Filter.css';
 import { makeStyles } from '@material-ui/core/styles'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Checkbox from '@material-ui/core/Checkbox'
@@ -16,20 +15,15 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 120,
   },
   selectEmpty: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1),
   },
 }));
 
-const Filter = ({ sort, handleSort }) => {
+const Filter = ({ items, filterItems, sort, handleSort, filterCategory, setFilterCategory, filterColor, setFilterColor }) => {
 
   const classes = useStyles();
 
   const [value, setValue] = useState("None");
-  
-  const [checked, setChecked] = useState("None");
-
-  const [category, setCategory] = useState("None"); 
-
 
 
   return (
