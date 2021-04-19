@@ -3,10 +3,11 @@ import ItemsDisplay from './ItemsDisplay'
 import Filter from '../Filter/Filter'
 
 
-const ItemsContainer = ({ items, sort, handleSort }) => {
+const ItemsContainer = ({ items }) => {
 
   const [filterCategory, setFilterCategory] = useState("")
   const [filterColor, setFilterColor] = useState("")
+  const [sort, setSort] = useState("")
   const [sortNewest, setSortNewest] = useState("")
   const [sortPrice, setSortPrice] = useState("")
 
@@ -14,7 +15,7 @@ const ItemsContainer = ({ items, sort, handleSort }) => {
   const filterItems = () => {
     let filterItems = items
     if (filterCategory && filterCategory !== "All") {
-      filterItems = filterItems.filter(item => item.name.includes(filterCategory))
+      filterItems = filterItems.filter(item => item.category.includes(filterCategory))
     }
     if (filterColor && filterColor !== "All") {
       filterItems = filterItems.filter(item => item.color.includes(filterColor))
@@ -41,7 +42,7 @@ const ItemsContainer = ({ items, sort, handleSort }) => {
         items={items}
         filterItems={filterItems}
         sort={sort}
-        handleSort={handleSort}
+        setSort={setSort}
         filterCategory={filterCategory}
         setFilterCategory={setFilterCategory}
         filterColor={filterColor}

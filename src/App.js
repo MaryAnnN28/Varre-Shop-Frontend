@@ -20,8 +20,7 @@ class App extends React.Component {
     filter: "All",
     cartItems: [],
     loggedIn: false, 
-    search: "",
-    sort: "None"
+    search: ""
   }
 
   componentDidMount() {
@@ -57,11 +56,6 @@ class App extends React.Component {
     return displayItems
   }
 
-  handleSort = (event) => {
-    this.setState({
-      sortByPrice: event.target.value 
-    })
-  }
 
 
 
@@ -85,8 +79,6 @@ class App extends React.Component {
             <Route path="/shop" render={routerProps =>
               <ItemsContainer
                 items={this.displayItems()}
-                sort={this.state.sort}
-                handleSort={this.handleSort}
                 {...routerProps}
               />} />
          
