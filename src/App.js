@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Signup from './components/Signup/Signup'
@@ -20,7 +20,8 @@ class App extends React.Component {
     filter: "All",
     cartItems: [],
     loggedIn: false, 
-    search: ""
+    search: "",
+    sort: ""
   }
 
   componentDidMount() {

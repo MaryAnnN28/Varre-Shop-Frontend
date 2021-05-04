@@ -19,13 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Filter = (props) => {
+const Filter = ({ items, sort, setSort }) => {
 
-  const {items, filterItems, sort, setSort, filterCategory, setFilterCategory, filterColor, setFilterColor} = props
+  
 
   const classes = useStyles();
-
-  const [value, setValue] = useState("None");
 
 
   return (
@@ -38,8 +36,8 @@ const Filter = (props) => {
               <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
-                value={sort}
-                onChange={event => setSort(event.target.value)}
+                // value={sort}
+                // onChange={event => setSort(event.target.value)}
                 label="Sort"
                 margin="dense"
               >
