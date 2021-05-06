@@ -11,7 +11,8 @@ const ItemsDisplay = ({ item }) => {
 
 
   return (
-    <>
+    
+      <Fragment>
       <div className="item-grid">
       
         <div className="item-card" onClick={() => setShow(true)}>
@@ -28,16 +29,14 @@ const ItemsDisplay = ({ item }) => {
           </div>
         </div>
       </div>
-      <Fragment>
         <ItemDetail
           item={item}
           show={show}
           handleClose={() => setShow(false)}
         
         />
-      </Fragment>
-    
-  </>
+    </Fragment>
+
   )
 }
 

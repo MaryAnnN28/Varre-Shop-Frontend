@@ -27,7 +27,7 @@ const Filter = ({ items, sort, setSort }) => {
 
 
   return (
-    <>
+    <div>
     
       <div className="filter-container">
         <div className="filter-header">
@@ -158,7 +158,7 @@ const Filter = ({ items, sort, setSort }) => {
        
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

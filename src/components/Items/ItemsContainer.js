@@ -37,7 +37,7 @@ const ItemsContainer = ({ items }) => {
   }
   
   return (
-    <>
+    <div>
       <Filter
         items={items}
         filterItems={filterItems}
@@ -56,7 +56,7 @@ const ItemsContainer = ({ items }) => {
 
       </div>
   
-    </>
+    </div>
   )
 }
 
