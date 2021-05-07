@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemsDisplay from './ItemsDisplay'
 import Filter from '../Filter/Filter'
+import axios from 'axios';
 
 
-const ItemsContainer = ({ items }) => {
+const ItemsContainer = ({ }) => {
 
+  const [items, setItems] = useState([])
+  const [sort, setSort] = useState("All")
   const [filterCategory, setFilterCategory] = useState("")
   const [filterColor, setFilterColor] = useState("")
-  const [sort, setSort] = useState("")
-  const [sortNewest, setSortNewest] = useState("")
-  const [sortPrice, setSortPrice] = useState("")
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/items')
+      .then(resp => setItems(resp.data))
+      .catch(resp => console.log(resp))
+  }, [items.length])
 
 
   const filterItems = () => {

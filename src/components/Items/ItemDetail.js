@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
 import './ItemDetail.css';
 
 

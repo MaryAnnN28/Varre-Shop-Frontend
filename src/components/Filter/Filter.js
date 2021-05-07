@@ -19,8 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Filter = ({ items, sort, setSort }) => {
+const Filter = (props) => {
 
+  const {filterCategory, setFilterCategory, filterColor, setFilterColor, sort, setSort, items, filterItems} = props
   
 
   const classes = useStyles();
@@ -36,21 +37,17 @@ const Filter = ({ items, sort, setSort }) => {
               <Select
                 labelId="demo-simple-select-outlined-label"
                 id="demo-simple-select-outlined"
-                // value={sort}
-                // onChange={event => setSort(event.target.value)}
+                value={filterCategory}
+                onChange={event => setFilterCategory(event.target.value)}
                 label="Sort"
                 margin="dense"
               >
-                <MenuItem value={"None"}>None</MenuItem>
-
-                <MenuItem value={"Price_Low_To_High"}>Price (Low to High)</MenuItem>
-              
-                <MenuItem value={"Price_High_To_Low"}>Price (High to Low)</MenuItem>
-              
-                <MenuItem value={"Newest"}>Newest</MenuItem>
-
-                <MenuItem value={"Oldest"}>Oldest</MenuItem>
-              
+                <MenuItem value={"All"}>All</MenuItem>
+                <MenuItem value={"abstract"}>Abstract</MenuItem>
+                <MenuItem value={"figurative"}>Figurative</MenuItem>
+                <MenuItem value={"fashion"}>Fashion</MenuItem>
+                <MenuItem value={"animals"}>Animals</MenuItem>
+                <MenuItem value={"nature"}>Nature</MenuItem>
               </Select>
           </FormControl>
           <br /><br />
