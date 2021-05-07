@@ -14,8 +14,17 @@ import { ChakraProvider } from "@chakra-ui/react"
 
 function App () {
 
-  const [loggedIn, setLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+    fetch(
+      "http://localhost:3000/api/v1/autologin", {
+      headers: {"Authorization": `Bearer ${localStorage.token}`}})
+      .then(resp => resp.json())
+        .then(response => {
+      if (response.id) setCurrentUser(response)
+    })
+  }, [])
 
 
     return (
@@ -29,17 +38,16 @@ function App () {
               <Route exact path="/" component={LandingPage}/>
             </Switch>
 
-            <Route exact path="/signin" component={Signin} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            <Route exact path="/signin" component={Signin} setCurrentUser={setCurrentUser} />
             
 
             <Route exact path="/signup" component={Signup} setCurrentUser={setCurrentUser} />
 
             <Route exact path="/cart" component={Cart} currentUser={currentUser} setCurrentUser={setCurrentUser} />
-            
+
             <Route exact path="/explore" component={LandingPage} />
             
-            <Route path="/shop" render={routerProps =>
-              <ItemsContainer {...routerProps} />} />
+            <Route exact path="/shop" component={ItemsContainer} />
          
           </ChakraProvider>
         </Router>

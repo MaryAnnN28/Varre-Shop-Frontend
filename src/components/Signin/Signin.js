@@ -31,7 +31,7 @@ const Signin = ({ setCurrentUser }) =>  {
           setError(data.message)
         } else {
           localStorage.setItem("token", data.token)
-          setCurrentUser(data.user)
+          setCurrentUser(data.currentUser)
           history.pushState('./cart')
       }
     })

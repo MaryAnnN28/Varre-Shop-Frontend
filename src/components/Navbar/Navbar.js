@@ -8,7 +8,6 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar">
-        
       
         <div className="navbar-left">
           <Link to='/shop'> SHOP</Link>
@@ -20,14 +19,8 @@ const Navbar = () => {
         </div>
         
         <div className="navbar-right">
-          <Link to='/signin'>
-            {/* <BiUser /> */}
-            SIGN IN
-            </Link>
-          <Link to='/cart'>
-            {/* <BiCartAlt /> */}
-          CART
-          </Link>
+          <Link to='/signin'>SIGN IN</Link>
+          <Link to='/cart'>CART</Link>
   
 
         </div>
