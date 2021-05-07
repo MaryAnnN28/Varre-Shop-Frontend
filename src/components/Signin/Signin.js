@@ -1,37 +1,49 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom'
 import './Signin.css'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-class Signin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      errors: ""
-    };
-  }
+const Signin = ({ setCurrentUser }) =>  {
+  
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(null)
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value})
-    
-  };
 
-  handleSubmit = (event) => {
+  let history = useHistory();
+  
+  const handleSubmit = (event) => {
     event.preventDefault()
+    fetch("http://localhost:3000/api/v1/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    })
+      .then(resp => resp.json())
+      .then(data => {
+        if (data.message) {
+          setError(data.message)
+        } else {
+          localStorage.setItem("token", data.token)
+          setCurrentUser(data.user)
+          history.pushState('./cart')
+      }
+    })
   }
 
 
-  render() {
-    const { email, password } = this.state
     return (
       <div className="login-page">
         <div className="login-container">
           <h1>Log In</h1>
           <div className="login-card">
-            <form classname="sign-in-form" onSubmit={this.handleSubmit}>
+            <form classname="sign-in-form" onSubmit={null}>
               <TextField
                 required
                 id="outlined-helperText"
@@ -40,8 +52,8 @@ class Signin extends Component {
                 type="email"
                 variant="outlined"
                 margin="dense"
-                value={email}
-                onChange={this.handleChange}
+                value={null}
+                onChange={(e) => setEmail(e.target.value)} 
               />
               <br />
               <TextField
@@ -52,8 +64,8 @@ class Signin extends Component {
                 type="password"
                 margin="dense"
                 variant="outlined"
-                value={password}
-                onChange={this.handleChange}
+                value={null}
+                onChange={(e) => setPassword(e.target.value)} 
               />
               <br />
               <br />
@@ -61,7 +73,9 @@ class Signin extends Component {
                 variant="contained"
                 size="medium"
                 color="primary"
-                type="submit">Sign In
+                type="submit"
+                onClick={handleSubmit}
+              >Sign In
               </Button>
               <br />
               <br />
@@ -73,7 +87,6 @@ class Signin extends Component {
 
       </div>
     );
-  }
-
 }
+
 export default Signin; 

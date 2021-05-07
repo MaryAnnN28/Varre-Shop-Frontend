@@ -14,6 +14,8 @@ import { ChakraProvider } from "@chakra-ui/react"
 
 function App () {
 
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [currentUser, setCurrentUser] = useState({})
 
 
     return (
@@ -27,9 +29,13 @@ function App () {
               <Route exact path="/" component={LandingPage}/>
             </Switch>
 
-            <Route exact path="/signin" component={Signin} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/signin" component={Signin} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            
+
+            <Route exact path="/signup" component={Signup} setCurrentUser={setCurrentUser} />
+
+            <Route exact path="/cart" component={Cart} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+            
             <Route exact path="/explore" component={LandingPage} />
             
             <Route path="/shop" render={routerProps =>
