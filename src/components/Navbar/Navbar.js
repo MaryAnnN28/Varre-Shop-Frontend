@@ -1,7 +1,6 @@
 import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import { BiCartAlt, BiUser } from 'react-icons/bi';
 import VarreLogo from '../../images/Varre-Logo.png'
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
         </div>
         
         <div className="navbar-right">
-          <Link to='/signin'>SIGN IN</Link>
+          <Link to='/login'>LOG IN</Link>
           <Link to='/cart'>CART</Link>
   
 

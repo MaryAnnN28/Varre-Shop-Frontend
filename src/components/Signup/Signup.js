@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { useHistory } from 'react-router-dom'
 import './Signup.css'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import axios from 'axios';
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
-      errors: ""
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      errors: ''
     };
   }
+
+  history = useHistory; 
+
 
   handleChange = (event) => {
     const { name, value } = event.target
@@ -25,20 +30,57 @@ class Signup extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const { first_name, last_name, email, password, password_confirmation } = this.state
+    let user = {
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation
+    }
+    axios.post('http://localhost:3001/api/v1/users', {user}, { withCredentials: true })
+      .then(response => {
+        if (response.data.status === 'created') {
+          this.props.handleLogin(response.data)
+          this.redirect()
+        } else {
+          this.setState({
+            errors: response.data.errors
+          })
+        }
+      })
+      .catch(error => console.log('api errors:', error))
+  };
+
+  redirect = () => {
+    this.props.history.push('/')
+  }
+
+  handleErrors = () => {
+    return (
+      <div>
+        <ul>{this.state.errors.map(error => {
+          return <li key={error}>{error}</li>
+        })}
+          </ul>
+      </div>
+    )
   }
 
   render() {
-    const { first_name, last_name, email, password, password_confirmation } = this.state
+    const {first_name, last_name, email, password, password_confirmation} = this.state
     return (
 
       <div className="signup-page">
         <div className="signup-container">
-          <h2>Create New Account</h2>
+          <h2>Sign Up</h2>
           <div className="signup-card">
+            
             <form className="signup-form" onSubmit={this.handleSubmit}>
               <TextField
                 required
                 id="outlined-helperText"
+                name="first_name"
                 label="First Name"
                 type="text"
                 variant="outlined"
@@ -50,8 +92,9 @@ class Signup extends Component {
               <TextField
                 required
                 id="outlined-helperText"
+                name="last_name"
                 label="Last Name"
-                type="email"
+                type="text"
                 variant="outlined"
                 margin="dense"
                 value={last_name}
@@ -61,6 +104,7 @@ class Signup extends Component {
               <TextField
                 required
                 id="outlined-helperText"
+                name="email"
                 label="Email"
                 type="email"
                 variant="outlined"
@@ -72,6 +116,7 @@ class Signup extends Component {
               <TextField
                 required
                 id="outlined-helperText"
+                name="password"
                 label="Password"
                 type="password"
                 margin="dense"
@@ -83,8 +128,9 @@ class Signup extends Component {
               <TextField
                 required
                 id="outlined-helperText"
+                name="password_confirmation"
                 label="Confirm Password"
-                type="password_confirmation"
+                type="password"
                 margin="dense"
                 variant="outlined"
                 value={password_confirmation}
@@ -106,56 +152,7 @@ class Signup extends Component {
         </div>
 
       </div>
-      // <div>
-      //   <h1>Sign Up</h1>
-      //     <form onSubmit={this.handleSubmit}>
-      //     <input
-      //         placeholder="First Name"
-      //         type="text"
-      //         name="first_name"
-      //         value={first_name}
-      //         onChange={this.handleChange}
-      //     />
-      //     <br />
-      //       <input
-      //         placeholder="Last Name"
-      //         type="text"
-      //         name="last_name"
-      //         value={last_name}
-      //         onChange={this.handleChange}
-      //     />
-      //     <br />
-      //       <input
-      //         placeholder="Email"
-      //         type="text"
-      //         name="email"
-      //         value={email}
-      //         onChange={this.handleChange}
-      //     />
-      //     <br />
-      //       <input
-      //         placeholder="Password"
-      //         type="text"
-      //         name="password"
-      //         value={password}
-      //         onChange={this.handleChange}
-      //     />
-      //     <br />
-      //       <input
-      //         placeholder="Password Confirmation"
-      //         type="text"
-      //         name="password_confirmation"
-      //         value={password_confirmation}
-      //         onChange={this.handleChange}
-      //     />
-      //     <br />
-      //       <button placeholder="Submit" type="submit">
-      //         Sign Up
-      //       </button>
-
-      //   </form>
-
-      // </div>
+  
     )
   }
 }

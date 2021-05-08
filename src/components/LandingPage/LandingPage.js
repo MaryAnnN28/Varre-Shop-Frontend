@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import LivingRoom1 from '../../images/LandingPage-Images/livingroom2.jpeg'
 import Dining2 from '../../images/LandingPage-Images/dining2.jpeg'
 import Office from '../../images/LandingPage-Images/office2.jpeg'
@@ -7,11 +8,17 @@ import './LandingPage.css'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-const LandingPage = () => {
 
+
+const LandingPage = () => {
 
   return (
     <div className="landing-page">
+      <div className="links-homepage">
+        <Link to='/login'>Log In</Link> &nbsp; &nbsp;
+        <Link to='/signup'>Sign Up</Link>
+      </div>
+      
       
       <div className="images-container">
 

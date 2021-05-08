@@ -4,7 +4,7 @@ import Filter from '../Filter/Filter'
 import axios from 'axios';
 
 
-const ItemsContainer = ({ }) => {
+const ItemsContainer = () => {
 
   const [items, setItems] = useState([])
   const [sort, setSort] = useState("All")
@@ -12,7 +12,7 @@ const ItemsContainer = ({ }) => {
   const [filterColor, setFilterColor] = useState("")
 
   useEffect(() => {
-    axios.get('http://localhost:3000/items')
+    axios.get('http://localhost:3001/items')
       .then(resp => setItems(resp.data))
       .catch(resp => console.log(resp))
   }, [items.length])

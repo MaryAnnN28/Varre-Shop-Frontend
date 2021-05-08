@@ -2,6 +2,13 @@
   justify-content: center;
 }
 
+.links-homepage {
+  padding: 1.2rem; 
+  justify-content: center;
+  text-align: center;
+}
+
+
 .images-container {
   justify-content: center;
   margin-right: auto; 
