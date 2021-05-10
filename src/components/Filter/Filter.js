@@ -9,6 +9,8 @@ import Checkbox from '@material-ui/core/Checkbox'
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
+import { Button, Box, Input, InputGroup, InputRightAddon, RadioGroup, Radio, Stack } from '@chakra-ui/react';
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -23,6 +25,7 @@ const Filter = (props) => {
 
   const {filterCategory, setFilterCategory, filterColor, setFilterColor, sort, setSort, items, filterItems} = props
   
+  const [value, setValue] = useState("None"); 
 
   const classes = useStyles();
 
@@ -32,6 +35,47 @@ const Filter = (props) => {
     
       <div className="filter-container">
         <div className="filter-header">
+          <RadioGroup onChange={setValue} value={value}>
+            <Stack>
+              <Radio
+                type="radio"
+                value="None"
+                checked={sort === "None"}
+                onChange={(event) => setSort(event.target.value)}>
+                <p className="sort-header">All</p>
+              </Radio>
+              <Radio
+                type="radio"
+                value="Price_Low_To_High"
+                checked={sort === "Price_Low_To_High"}
+                onChange={(event) => setSort(event.target.value)}>
+                <p className="sort-header">Lowest Price</p>
+              </Radio>
+              <Radio
+                type="radio"
+                value="Price_High_To_Low"
+                checked={sort === "Price_High_To_Low"}
+                onChange={(event) => setSort(event.target.value)}>
+                <p className="sort-header">Highest Price</p>
+              </Radio>
+              <Radio
+                type="radio"
+                value="Newest"
+                checked={sort === "Newest"}
+                onChange={(event) => setSort(event.target.value)}>
+                <p className="sort-header">Newest</p>
+              </Radio>
+              <Radio
+                type="radio"
+                value="Oldest"
+                checked={sort === "Oldest"}
+                onChange={(event) => setSort(event.target.value)}>
+                <p className="sort-header">Oldest</p>
+              </Radio>
+
+
+            </Stack>
+          </RadioGroup>
         <FormControl variant="outlined" className={classes.formControl}>
               <InputLabel id="demo-simple-select-outlined-label">Sort:</InputLabel>
               <Select
@@ -51,7 +95,7 @@ const Filter = (props) => {
               </Select>
           </FormControl>
           <br /><br />
-          <p className="filter-header-text">FILTER BY:</p>
+          {/* <p className="filter-header-text">FILTER BY:</p>
               <br />
           <FormGroup margin="dense">
           <p className="filter-header-text">CATEGORY</p>
@@ -152,7 +196,7 @@ const Filter = (props) => {
 
 
           </FormGroup>
-       
+        */}
         </div>
       </div>
     </div>

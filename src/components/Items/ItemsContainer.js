@@ -21,7 +21,7 @@ const ItemsContainer = () => {
   const filterItems = () => {
     let filterItems = items
     if (filterCategory && filterCategory !== "All") {
-      filterItems = filterItems.filter(item => item.category.includes(filterCategory))
+      filterItems = filterItems.filter(item => item.category === filterCategory)
     }
     if (filterColor && filterColor !== "All") {
       filterItems = filterItems.filter(item => item.color.includes(filterColor))
@@ -37,7 +37,7 @@ const ItemsContainer = () => {
       case "Oldest":
         return filterItems.sort((a, b) => a.created_at > b.created_at ? 1 : -1)
       case "None":
-        return filterItems
+        return filterItems.sort((a, b) => a.created_at > b.created_at ? 1 : -1)
     }
     return filterItems
   }
@@ -45,8 +45,8 @@ const ItemsContainer = () => {
   return (
     <div>
       <Filter
-        items={items}
-        filterItems={filterItems}
+        items={filterItems()}
+        // filterItems={filterItems}
         sort={sort}
         setSort={setSort}
         filterCategory={filterCategory}
